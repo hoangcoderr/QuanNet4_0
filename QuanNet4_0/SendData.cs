@@ -30,6 +30,7 @@ namespace QuanNet4_0
             catch
             {
                 MessageBox.Show(Language.cannotConnectToServer[Language.languageUsing], Language.notification[Language.languageUsing]);
+
             }
         }
     }

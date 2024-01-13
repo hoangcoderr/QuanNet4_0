@@ -35,7 +35,7 @@
             loginBt = new Button();
             createAccBt = new Button();
             lbLogin = new Label();
-            label1 = new Label();
+            lbLanguage = new Label();
             languageCb = new ComboBox();
             ckbIsShowPassword = new CheckBox();
             SuspendLayout();
@@ -106,14 +106,14 @@
             lbLogin.TabIndex = 6;
             lbLogin.Text = "LOGIN";
             // 
-            // label1
+            // lbLanguage
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(293, 30);
-            label1.Name = "label1";
-            label1.Size = new Size(59, 15);
-            label1.TabIndex = 8;
-            label1.Text = "Language";
+            lbLanguage.AutoSize = true;
+            lbLanguage.Location = new Point(293, 30);
+            lbLanguage.Name = "lbLanguage";
+            lbLanguage.Size = new Size(59, 15);
+            lbLanguage.TabIndex = 8;
+            lbLanguage.Text = "Language";
             // 
             // languageCb
             // 
@@ -144,7 +144,7 @@
             ClientSize = new Size(494, 338);
             Controls.Add(ckbIsShowPassword);
             Controls.Add(languageCb);
-            Controls.Add(label1);
+            Controls.Add(lbLanguage);
             Controls.Add(lbLogin);
             Controls.Add(createAccBt);
             Controls.Add(loginBt);
@@ -170,7 +170,7 @@
         private Button loginBt;
         private Button createAccBt;
         private Label lbLogin;
-        private Label label1;
+        private Label lbLanguage;
         private ComboBox languageCb;
         private CheckBox ckbIsShowPassword;
     }

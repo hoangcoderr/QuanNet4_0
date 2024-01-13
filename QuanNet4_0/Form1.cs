@@ -39,6 +39,7 @@ namespace QuanNet4_0
             lbPassword.Text = Language.passwordText[Language.languageUsing];
             createAccBt.Text = Language.createAcc[Language.languageUsing];
             ckbIsShowPassword.Text = Language.showPasswordText[Language.languageUsing];
+            lbLanguage.Text = Language.languages[Language.languageUsing];
         }
         private void loginBt_Click(object sender, EventArgs e)
         {
