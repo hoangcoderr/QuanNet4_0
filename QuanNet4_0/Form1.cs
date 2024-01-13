@@ -30,8 +30,8 @@ namespace QuanNet4_0
             return !string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password);
         }
 
-        public static string mysqlCon = "server=127.0.0.1; user = root; database = quannet4cham0; passsword =";
-        public static DateTime currentTime = DateTime.Now;
+        public static string mysqlCon = "server=localhost; user = root; database = quannet4cham0; passsword =";
+        public static int TYPE = 0;
         private void LoadLanguageLogin()
         {
             lbLogin.Text = Language.loginText[Language.languageUsing];
@@ -48,18 +48,7 @@ namespace QuanNet4_0
             }
             else
             {
-                MySqlConnection mySqlConnection = new MySqlConnection(mysqlCon);
-                SqlConnection.sqlConnect(mySqlConnection);
-                if (SqlProgession.IsUserAvaiable(mySqlConnection, usernameTxt.Text, passwordTxt.Text))
-                {
-                    MessageBox.Show(Language.loginSucessful[Language.languageUsing], Language.notification[Language.languageUsing]);
-                }
-                else
-                {
-
-                    MessageBox.Show(Language.wrongInformationText[Language.languageUsing], Language.notification[Language.languageUsing]);
-                }
-                SqlConnection.sqlClose(mySqlConnection);
+                SendData.SendAccountToServer(usernameTxt.Text, passwordTxt.Text, TYPE);
             }
         }
 

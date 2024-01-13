@@ -24,6 +24,7 @@ namespace QuanNet4_0
         public static string[] registerText = { "Đăng ký", "Register" };
         public static string[] showPasswordText = { "Hiện mật khẩu", "Show password" };
         public static string[] wrongInformationText = { "Sai tài khoản hoặc mật khẩu", "Wrong username or password" };
+        public static string[] cannotConnectToServer = { "Không thể kết nối đến server. Vui lòng kiểm tra lại đường truyền", "Can't connect to server. Please check your internet connection!" };
     }
 
 }

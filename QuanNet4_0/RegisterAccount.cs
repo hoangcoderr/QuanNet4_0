@@ -17,6 +17,7 @@ namespace QuanNet4_0
         {
             InitializeComponent();
         }
+        public static int TYPE = 1;
 
         private void RegisterAccount_Load(object sender, EventArgs e)
         {
@@ -60,22 +61,11 @@ namespace QuanNet4_0
             }
             else if (!isMatchedPassword())
             {
-                MessageBox.Show(Language.isFilledAccOrPass[Language.languageUsing], Language.notification[Language.languageUsing]);
+                MessageBox.Show(Language.isMatchedPassword[Language.languageUsing], Language.notification[Language.languageUsing]);
             }
             else
             {
-                MySqlConnection sqlConnect = new MySqlConnection(Form1.mysqlCon);
-                SqlConnection.sqlConnect(sqlConnect);
-                if (SqlProgession.IsUserRegistered(sqlConnect, txtUserRegister.Text))
-                {
-                    MessageBox.Show(Language.isAvaiableAccount[Language.languageUsing]);
-                }
-                else
-                {
-                    SqlProgession.addAccountToServer(sqlConnect, txtUserRegister.Text, txtPassRegister.Text);
-                    MessageBox.Show(Language.registerSucessful[Language.languageUsing]);
-                }
-                SqlConnection.sqlClose(sqlConnect);
+                SendData.SendAccountToServer(txtPassRegister.Text, txtUserRegister.Text, TYPE);
             }
         }
 

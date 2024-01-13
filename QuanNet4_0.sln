@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanNet4_0", "QuanNet4_0\QuanNet4_0.csproj", "{6062F2D7-ACC1-4EF3-B29E-72CC33A559AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuanNet4_0", "QuanNet4_0\QuanNet4_0.csproj", "{6062F2D7-ACC1-4EF3-B29E-72CC33A559AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3E69817B-E07E-46B3-A19B-BA9F4E419626}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
