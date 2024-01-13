@@ -65,7 +65,7 @@ namespace QuanNet4_0
             }
             else
             {
-                SendData.SendAccountToServer(txtPassRegister.Text, txtUserRegister.Text, TYPE);
+                SendData.SendAccountToServer(txtUserRegister.Text, txtPassRegister.Text, TYPE);
             }
         }
 

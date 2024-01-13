@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace QuanNet4_0
 {
@@ -17,15 +18,30 @@ namespace QuanNet4_0
                 NetworkStream stream = client.GetStream();
                 byte[] data = Encoding.UTF8.GetBytes(a + " " + b + " " + type);
                 stream.Write(data, 0, data.Length);
-                while (true)
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+
+                while (stopwatch.Elapsed.TotalSeconds < 8)
                 {
                     byte[] responseData = new byte[1024];
                     int bytesRead = stream.Read(responseData, 0, responseData.Length);
                     string response = Encoding.UTF8.GetString(responseData, 0, bytesRead);
-                    Console.WriteLine("Result: " + response);
+                    if (response == "Registered")
+                    {
+                        MessageBox.Show(Language.isAvaiableAccount[Language.languageUsing], Language.notification[Language.languageUsing]);
+                    }
+                    else if (response == "Register done") 
+                        MessageBox.Show(Language.registerSucessful[Language.languageUsing], Language.notification[Language.languageUsing]);
+                    else if (response == "Login sucessful")
+                    {
+                        MessageBox.Show(Language.loginSucessful[Language.languageUsing], Language.notification[Language.languageUsing]);
+                    }
+                    else if (response == "Wrong information")
+                        MessageBox.Show(Language.wrongInformationText[Language.languageUsing], Language.notification[Language.languageUsing]);
                     client.Close();
-                    break;
+                    return;
                 }
+                MessageBox.Show(Language.cannotConnectToServer[Language.languageUsing], Language.notification[Language.languageUsing]);
             }
             catch
             {
