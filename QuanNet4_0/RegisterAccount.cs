@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -32,12 +33,14 @@ namespace QuanNet4_0
             lbUserRegister.Text = Language.usernameText[l];
             ckbIsShowPassword.Text = Language.showPasswordText[l];
             btRegister.Text = Language.registerText[l];
+            lbName.Text = Language.nameText[l];
         }
         public bool isFilled()
         {
             if (string.IsNullOrEmpty(txtUserRegister.Text) ||
                 string.IsNullOrEmpty(txtPassRegister.Text) ||
-                string.IsNullOrEmpty(txtRetypePassRegister.Text))
+                string.IsNullOrEmpty(txtRetypePassRegister.Text)||
+                string.IsNullOrEmpty(txtName.Text))
             {
                 return false;
             }
@@ -65,14 +68,36 @@ namespace QuanNet4_0
             }
             else
             {
-                SendData.SendAccountToServer(txtUserRegister.Text, txtPassRegister.Text, TYPE);
+                string[] data = { txtUserRegister.Text, txtPassRegister.Text,txtName.Text };
+                SendData.SendAccountToServer(data, TYPE);
             }
         }
 
         private void ckbIsShowPassword_CheckedChanged(object sender, EventArgs e)
         {
             txtPassRegister.UseSystemPasswordChar = !ckbIsShowPassword.Checked;
-            txtRetypePassRegister.UseSystemPasswordChar= !ckbIsShowPassword.Checked;
+            txtRetypePassRegister.UseSystemPasswordChar = !ckbIsShowPassword.Checked;
+        }
+
+        private void txtUserRegister_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -37,6 +37,8 @@
             txtRetypePassRegister = new TextBox();
             btRegister = new Button();
             ckbIsShowPassword = new CheckBox();
+            lbName = new Label();
+            txtName = new TextBox();
             SuspendLayout();
             // 
             // lbUserRegister
@@ -51,7 +53,7 @@
             // lbPasswordRegister
             // 
             lbPasswordRegister.AutoSize = true;
-            lbPasswordRegister.Location = new Point(48, 197);
+            lbPasswordRegister.Location = new Point(48, 250);
             lbPasswordRegister.Name = "lbPasswordRegister";
             lbPasswordRegister.Size = new Size(57, 15);
             lbPasswordRegister.TabIndex = 1;
@@ -60,7 +62,7 @@
             // lbRetypePasswordRegister
             // 
             lbRetypePasswordRegister.AutoSize = true;
-            lbRetypePasswordRegister.Location = new Point(9, 248);
+            lbRetypePasswordRegister.Location = new Point(9, 301);
             lbRetypePasswordRegister.Name = "lbRetypePasswordRegister";
             lbRetypePasswordRegister.Size = new Size(96, 15);
             lbRetypePasswordRegister.TabIndex = 2;
@@ -83,10 +85,11 @@
             txtUserRegister.Name = "txtUserRegister";
             txtUserRegister.Size = new Size(197, 23);
             txtUserRegister.TabIndex = 4;
+            txtUserRegister.KeyPress += txtUserRegister_KeyPress;
             // 
             // txtPassRegister
             // 
-            txtPassRegister.Location = new Point(134, 194);
+            txtPassRegister.Location = new Point(134, 247);
             txtPassRegister.Name = "txtPassRegister";
             txtPassRegister.Size = new Size(197, 23);
             txtPassRegister.TabIndex = 5;
@@ -94,7 +97,7 @@
             // 
             // txtRetypePassRegister
             // 
-            txtRetypePassRegister.Location = new Point(134, 248);
+            txtRetypePassRegister.Location = new Point(134, 301);
             txtRetypePassRegister.Name = "txtRetypePassRegister";
             txtRetypePassRegister.Size = new Size(197, 23);
             txtRetypePassRegister.TabIndex = 6;
@@ -102,7 +105,7 @@
             // 
             // btRegister
             // 
-            btRegister.Location = new Point(78, 356);
+            btRegister.Location = new Point(86, 393);
             btRegister.Name = "btRegister";
             btRegister.Size = new Size(174, 76);
             btRegister.TabIndex = 8;
@@ -113,7 +116,7 @@
             // ckbIsShowPassword
             // 
             ckbIsShowPassword.AutoSize = true;
-            ckbIsShowPassword.Location = new Point(78, 301);
+            ckbIsShowPassword.Location = new Point(86, 338);
             ckbIsShowPassword.Name = "ckbIsShowPassword";
             ckbIsShowPassword.Size = new Size(113, 19);
             ckbIsShowPassword.TabIndex = 11;
@@ -121,11 +124,32 @@
             ckbIsShowPassword.UseVisualStyleBackColor = true;
             ckbIsShowPassword.CheckedChanged += ckbIsShowPassword_CheckedChanged;
             // 
+            // lbName
+            // 
+            lbName.AutoSize = true;
+            lbName.Location = new Point(66, 199);
+            lbName.Name = "lbName";
+            lbName.Size = new Size(39, 15);
+            lbName.TabIndex = 12;
+            lbName.Text = "Name";
+            // 
+            // txtName
+            // 
+            txtName.Location = new Point(134, 196);
+            txtName.MaxLength = 30;
+            txtName.Name = "txtName";
+            txtName.Size = new Size(197, 23);
+            txtName.TabIndex = 13;
+            txtName.TextChanged += txtName_TextChanged;
+            txtName.KeyPress += txtName_KeyPress;
+            // 
             // RegisterAccount
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(353, 481);
+            Controls.Add(txtName);
+            Controls.Add(lbName);
             Controls.Add(ckbIsShowPassword);
             Controls.Add(btRegister);
             Controls.Add(txtRetypePassRegister);
@@ -155,5 +179,7 @@
         private TextBox txtRetypePassRegister;
         private Button btRegister;
         private CheckBox ckbIsShowPassword;
+        private Label lbName;
+        private TextBox txtName;
     }
 }

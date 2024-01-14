@@ -29,8 +29,6 @@ namespace QuanNet4_0
             // Kiểm tra xem cả hai ô đều không bị bỏ trống
             return !string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password);
         }
-
-        public static string mysqlCon = "server=localhost; user = root; database = quannet4cham0; passsword =";
         public static int TYPE = 0;
         private void LoadLanguageLogin()
         {
@@ -49,7 +47,8 @@ namespace QuanNet4_0
             }
             else
             {
-                SendData.SendAccountToServer(usernameTxt.Text, passwordTxt.Text, TYPE);
+                string[] data = { usernameTxt.Text, passwordTxt.Text };
+                SendData.SendAccountToServer(data, TYPE);
             }
         }
 
@@ -67,8 +66,7 @@ namespace QuanNet4_0
 
         private void usernameTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            var regex = new Regex(@"[^a-zA-Z0-9\s]");
-            if (regex.IsMatch(e.KeyChar.ToString()))
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }
