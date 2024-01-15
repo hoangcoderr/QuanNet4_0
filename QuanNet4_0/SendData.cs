@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using WebSocketSharp;
 
 namespace QuanNet4_0
 {
@@ -14,35 +15,30 @@ namespace QuanNet4_0
         {
             try
             {
-                TcpClient client = new TcpClient("localhost", 8080);
-                NetworkStream stream = client.GetStream();
-                string extract = string.Empty;
-                for (int i = 0;i<a.Length;i++)
+                var ws = new WebSocket("ws://localhost:8080/Echo");
+                
+                    string extract = string.Empty;
+                    for (int i = 0; i < a.Length; i++)
+                    {
+                        extract += a[i] + "|";
+                    }
+                    extract += type.ToString();
+                ws.OnMessage += (sender, e) =>
                 {
-                    extract += a[i] + "|";    
-                }
-                extract += type.ToString();
-                byte[] data = Encoding.UTF8.GetBytes(extract);
-                stream.Write(data, 0, data.Length);
-                Stopwatch stopwatch = new Stopwatch();
-                stopwatch.Start();
+                    Console.WriteLine("Client received: " + e.Data);
+                    string response = e.Data;
+                    Process.ProcessReceiveData(response);
+                    
+                    ws.Close();
+                };
 
-                while (stopwatch.Elapsed.TotalSeconds < 8)
-                {
-                    byte[] responseData = new byte[1024];
-                    int bytesRead = stream.Read(responseData, 0, responseData.Length);
-                    string response = Encoding.UTF8.GetString(responseData, 0, bytesRead);
-                    Console.WriteLine("Result: " +  response);
-                    Process.ProcessReceiveData(response);                
-                    client.Close();
-                    return;
-                }
-                MessageBox.Show(Language.cannotConnectToServer[Language.languageUsing], Language.notification[Language.languageUsing]);
+                    ws.Connect();
+                    ws.Send(extract);
             }
-            catch
+            catch (Exception ex) 
             {
                 MessageBox.Show(Language.cannotConnectToServer[Language.languageUsing], Language.notification[Language.languageUsing]);
-
+                Console.WriteLine(ex.ToString());
             }
         }
     }

@@ -16,5 +16,10 @@ namespace QuanNet4_0
         {
             InitializeComponent();
         }
+
+        private void lbAmount_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
