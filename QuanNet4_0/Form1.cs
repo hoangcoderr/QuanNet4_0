@@ -19,6 +19,7 @@ namespace QuanNet4_0
             AllocConsole();
             LoadLanguageLogin();
             languageCb.SelectedIndex = 0;
+            //SendData.ws.Connect();
         }
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -81,6 +82,39 @@ namespace QuanNet4_0
         private void ckbIsShowPassword_CheckedChanged(object sender, EventArgs e)
         {
             passwordTxt.UseSystemPasswordChar = !ckbIsShowPassword.Checked;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(Language.yesNoTurnOff[Language.languageUsing], Language.notification[Language.languageUsing], MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                SendData.ws.Close();
+                Application.Exit();
+               
+            }
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+
+        }
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
     }
 }

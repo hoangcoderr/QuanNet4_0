@@ -11,11 +11,12 @@ namespace QuanNet4_0
 {
     internal class SendData
     {
+        public static WebSocket ws = new WebSocket("ws://localhost:8080/Communication");
         public static void SendAccountToServer(string[] a, int type)
         {
             try
             {
-                var ws = new WebSocket("ws://localhost:8080/Echo");
+                  ws = new WebSocket("ws://localhost:8080/Communication");
                 
                     string extract = string.Empty;
                     for (int i = 0; i < a.Length; i++)
@@ -29,7 +30,7 @@ namespace QuanNet4_0
                     string response = e.Data;
                     Process.ProcessReceiveData(response);
                     
-                    ws.Close();
+                   // ws.Close();
                 };
 
                     ws.Connect();

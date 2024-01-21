@@ -26,6 +26,9 @@ namespace QuanNet4_0
         public static string[] wrongInformationText = { "Sai tài khoản hoặc mật khẩu", "Wrong username or password" };
         public static string[] cannotConnectToServer = { "Không thể kết nối đến server. Vui lòng kiểm tra lại đường truyền", "Can't connect to server. Please check your internet connection!" };
         public static string[] nameText = { "Tên", "Name" };
+        public static string[] yesNoTurnOff = { "Bạn có chắc chắn muốn thoát không?", "Do you want to close the application?" };
+        public static string[] yesText = { "Có", "Yes" };
+        public static string[] noText = { "Không", "No" };
     }
 
 }

@@ -38,11 +38,13 @@
             lbLanguage = new Label();
             languageCb = new ComboBox();
             ckbIsShowPassword = new CheckBox();
+            btnClose = new Button();
+            btnMinimize = new Button();
             SuspendLayout();
             // 
             // usernameTxt
             // 
-            usernameTxt.Location = new Point(133, 137);
+            usernameTxt.Location = new Point(115, 155);
             usernameTxt.MaxLength = 30;
             usernameTxt.Name = "usernameTxt";
             usernameTxt.Size = new Size(294, 23);
@@ -51,7 +53,7 @@
             // 
             // passwordTxt
             // 
-            passwordTxt.Location = new Point(133, 186);
+            passwordTxt.Location = new Point(115, 204);
             passwordTxt.Name = "passwordTxt";
             passwordTxt.Size = new Size(294, 23);
             passwordTxt.TabIndex = 1;
@@ -60,7 +62,7 @@
             // lbUsername
             // 
             lbUsername.AutoSize = true;
-            lbUsername.Location = new Point(36, 140);
+            lbUsername.Location = new Point(18, 158);
             lbUsername.Name = "lbUsername";
             lbUsername.Size = new Size(60, 15);
             lbUsername.TabIndex = 2;
@@ -70,7 +72,7 @@
             // lbPassword
             // 
             lbPassword.AutoSize = true;
-            lbPassword.Location = new Point(36, 194);
+            lbPassword.Location = new Point(18, 212);
             lbPassword.Name = "lbPassword";
             lbPassword.Size = new Size(57, 15);
             lbPassword.TabIndex = 3;
@@ -78,7 +80,7 @@
             // 
             // loginBt
             // 
-            loginBt.Location = new Point(267, 278);
+            loginBt.Location = new Point(249, 296);
             loginBt.Name = "loginBt";
             loginBt.Size = new Size(148, 48);
             loginBt.TabIndex = 4;
@@ -88,7 +90,7 @@
             // 
             // createAccBt
             // 
-            createAccBt.Location = new Point(93, 278);
+            createAccBt.Location = new Point(75, 296);
             createAccBt.Name = "createAccBt";
             createAccBt.Size = new Size(148, 48);
             createAccBt.TabIndex = 5;
@@ -100,7 +102,7 @@
             // 
             lbLogin.AutoSize = true;
             lbLogin.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbLogin.Location = new Point(188, 65);
+            lbLogin.Location = new Point(170, 83);
             lbLogin.Name = "lbLogin";
             lbLogin.Size = new Size(102, 40);
             lbLogin.TabIndex = 6;
@@ -109,7 +111,7 @@
             // lbLanguage
             // 
             lbLanguage.AutoSize = true;
-            lbLanguage.Location = new Point(293, 30);
+            lbLanguage.Location = new Point(283, 66);
             lbLanguage.Name = "lbLanguage";
             lbLanguage.Size = new Size(59, 15);
             lbLanguage.TabIndex = 8;
@@ -120,7 +122,7 @@
             languageCb.DropDownStyle = ComboBoxStyle.DropDownList;
             languageCb.FormattingEnabled = true;
             languageCb.Items.AddRange(new object[] { "Tiếng Việt", "English" });
-            languageCb.Location = new Point(358, 26);
+            languageCb.Location = new Point(348, 62);
             languageCb.Name = "languageCb";
             languageCb.Size = new Size(121, 23);
             languageCb.TabIndex = 9;
@@ -129,7 +131,7 @@
             // ckbIsShowPassword
             // 
             ckbIsShowPassword.AutoSize = true;
-            ckbIsShowPassword.Location = new Point(128, 233);
+            ckbIsShowPassword.Location = new Point(110, 251);
             ckbIsShowPassword.Name = "ckbIsShowPassword";
             ckbIsShowPassword.Size = new Size(113, 19);
             ckbIsShowPassword.TabIndex = 10;
@@ -137,11 +139,35 @@
             ckbIsShowPassword.UseVisualStyleBackColor = true;
             ckbIsShowPassword.CheckedChanged += ckbIsShowPassword_CheckedChanged;
             // 
+            // btnClose
+            // 
+            btnClose.Location = new Point(428, 12);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(41, 23);
+            btnClose.TabIndex = 11;
+            btnClose.Text = "X";
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
+            // 
+            // btnMinimize
+            // 
+            btnMinimize.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMinimize.Location = new Point(381, 12);
+            btnMinimize.Name = "btnMinimize";
+            btnMinimize.Size = new Size(41, 23);
+            btnMinimize.TabIndex = 12;
+            btnMinimize.Text = "-";
+            btnMinimize.UseVisualStyleBackColor = true;
+            btnMinimize.Click += btnMinimize_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(494, 338);
+            ClientSize = new Size(480, 355);
+            ControlBox = false;
+            Controls.Add(btnMinimize);
+            Controls.Add(btnClose);
             Controls.Add(ckbIsShowPassword);
             Controls.Add(languageCb);
             Controls.Add(lbLanguage);
@@ -152,11 +178,12 @@
             Controls.Add(lbUsername);
             Controls.Add(passwordTxt);
             Controls.Add(usernameTxt);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             Name = "Form1";
             Text = "Login";
             Load += Form1_Load;
+            MouseDown += Form1_MouseDown;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -173,5 +200,7 @@
         private Label lbLanguage;
         private ComboBox languageCb;
         private CheckBox ckbIsShowPassword;
+        private Button btnClose;
+        private Button btnMinimize;
     }
 }
