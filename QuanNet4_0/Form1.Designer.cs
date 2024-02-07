@@ -40,6 +40,7 @@
             ckbIsShowPassword = new CheckBox();
             btnClose = new Button();
             btnMinimize = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // usernameTxt
@@ -160,12 +161,23 @@
             btnMinimize.UseVisualStyleBackColor = true;
             btnMinimize.Click += btnMinimize_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(249, 233);
+            button1.Name = "button1";
+            button1.Size = new Size(148, 57);
+            button1.TabIndex = 13;
+            button1.Text = "Login";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(480, 355);
             ControlBox = false;
+            Controls.Add(button1);
             Controls.Add(btnMinimize);
             Controls.Add(btnClose);
             Controls.Add(ckbIsShowPassword);
@@ -202,5 +214,6 @@
         private CheckBox ckbIsShowPassword;
         private Button btnClose;
         private Button btnMinimize;
+        private Button button1;
     }
 }

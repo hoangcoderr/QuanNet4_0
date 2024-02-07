@@ -32,6 +32,7 @@
             lbAmount = new Label();
             lbAmountNumber = new Label();
             lbWelcome = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // lbName
@@ -75,17 +76,30 @@
             lbWelcome.TabIndex = 4;
             lbWelcome.Text = "Welcome, ";
             // 
+            // button1
+            // 
+            button1.Location = new Point(214, 173);
+            button1.Name = "button1";
+            button1.Size = new Size(745, 285);
+            button1.TabIndex = 5;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // MainClient
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1331, 705);
+            Controls.Add(button1);
             Controls.Add(lbWelcome);
             Controls.Add(lbAmountNumber);
             Controls.Add(lbAmount);
             Controls.Add(lbName);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "MainClient";
             Text = "MainClient";
+            Load += MainClient_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -96,5 +110,6 @@
         private Label lbAmount;
         private Label lbAmountNumber;
         private Label lbWelcome;
+        private Button button1;
     }
 }

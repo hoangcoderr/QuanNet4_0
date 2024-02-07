@@ -29,6 +29,9 @@ namespace QuanNet4_0
         public static string[] yesNoTurnOff = { "Bạn có chắc chắn muốn thoát không?", "Do you want to close the application?" };
         public static string[] yesText = { "Có", "Yes" };
         public static string[] noText = { "Không", "No" };
+        public static string[] alreadyConnectedToServer = { "Bạn đã kết nối đến server rồi", "You've already connected to server!" };
+        public static string[] welcomeText = { "Chào mừng,", "Welcome," };
+        public static string[] amountText = { "Số dư: ", "Amount: " };
     }
 
 }

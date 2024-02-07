@@ -49,7 +49,14 @@ namespace QuanNet4_0
             else
             {
                 string[] data = { usernameTxt.Text, passwordTxt.Text };
-                SendData.SendAccountToServer(data, TYPE);
+                
+                Thread thread = new Thread(() =>
+                {
+                    SendData.SendAccountToServer(data, TYPE,this);
+                });
+               
+                thread.Start();
+               
             }
         }
 
@@ -89,9 +96,15 @@ namespace QuanNet4_0
             DialogResult result = MessageBox.Show(Language.yesNoTurnOff[Language.languageUsing], Language.notification[Language.languageUsing], MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                SendData.ws.Close();
-                Application.Exit();
-               
+                try
+                {
+                    SendData.ws.Close();
+                    Application.Exit();
+                }
+                catch (Exception ex) 
+                {
+                    Application.Exit();
+                }
             }
         }
 
@@ -114,6 +127,11 @@ namespace QuanNet4_0
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+          this.Hide();  
         }
     }
 }

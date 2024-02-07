@@ -12,7 +12,8 @@ namespace QuanNet4_0
     internal class SendData
     {
         public static WebSocket ws = new WebSocket("ws://localhost:8080/Communication");
-        public static void SendAccountToServer(string[] a, int type)
+        public static bool isLogged = false;
+        public static void SendAccountToServer(string[] a, int type,Form1 form)
         {
             try
             {
@@ -28,12 +29,16 @@ namespace QuanNet4_0
                 {
                     Console.WriteLine("Client received: " + e.Data);
                     string response = e.Data;
-                    Process.ProcessReceiveData(response);
-
-                    // ws.Close();
+                    Thread thread = new Thread(() =>
+                    {
+                        Process.ProcessReceiveData(form,response);
+                    });
+                    
+                    thread.Start();
                 };
+
                 ws.Connect();
-                ws.Send(extract);
+                ws.Send(extract); 
             }
             catch (Exception ex)
             {

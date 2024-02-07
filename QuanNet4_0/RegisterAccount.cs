@@ -69,7 +69,7 @@ namespace QuanNet4_0
             else
             {
                 string[] data = { txtUserRegister.Text, txtPassRegister.Text,txtName.Text };
-                SendData.SendAccountToServer(data, TYPE);
+                SendData.SendAccountToServer(data, TYPE, new Form1());
             }
         }
 
