@@ -83,7 +83,7 @@
             // 
             loginBt.Location = new Point(249, 296);
             loginBt.Name = "loginBt";
-            loginBt.Size = new Size(148, 48);
+            loginBt.Size = new Size(148, 47);
             loginBt.TabIndex = 4;
             loginBt.Text = "Login";
             loginBt.UseVisualStyleBackColor = true;

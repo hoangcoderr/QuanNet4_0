@@ -9,8 +9,8 @@ namespace QuanNet4_0
 {
     internal class Process
     {
- 
-        public static void ProcessReceiveData(Form1 form,string data)
+
+        public static void ProcessReceiveData(Form1 form, string data)
         {
             string[] str = data.Split('|');
             int type = int.Parse(str[str.Length - 1]);
@@ -24,17 +24,10 @@ namespace QuanNet4_0
                             form.Hide();
                         });
                         MessageBox.Show(Language.loginSucessful[Language.languageUsing], Language.notification[Language.languageUsing]);
-                        Thread thread = new Thread(() =>
-                        {
-                            MainClient mainClient = new MainClient(str[2], str[3], int.Parse(str[4]));
-                            mainClient.FormClosed += (s, args) => Application.ExitThread(); 
-                            Application.Run(mainClient);
-
-                   
-                        });
-                        thread.SetApartmentState(ApartmentState.STA); 
-                        thread.Start();
-                       
+         
+                        MainClient mainClient = new MainClient(str[2], str[3], int.Parse(str[4]));
+         
+                        Application.Run(mainClient);
 
                     }
 
@@ -51,6 +44,22 @@ namespace QuanNet4_0
                     else
                     {
                         MessageBox.Show(Language.isAvaiableAccount[Language.languageUsing], Language.notification[Language.languageUsing]);
+                    }
+                    break;
+                case 2:
+                    if (int.Parse(str[0]) == 0)
+                    {
+                        MessageBox.Show(Language.notEnoughMoney[Language.languageUsing], Language.notEnoughMoney[Language.languageUsing]);
+                    }
+                    else
+                    {
+                        MainClient.amount -= int.Parse(str[1]);
+                        MessageBox.Show(Language.buySucessfully[Language.languageUsing], Language.buySucessfully[Language.languageUsing]);
+                        MainClient mainClientForm = Application.OpenForms.OfType<MainClient>().FirstOrDefault();
+                        if (mainClientForm != null)
+                        {
+                            mainClientForm.UpdateAmount(MainClient.amount);
+                        }
                     }
                     break;
             }

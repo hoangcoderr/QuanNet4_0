@@ -13,7 +13,7 @@ namespace QuanNet4_0
     {
         public static WebSocket ws = new WebSocket("ws://localhost:8080/Communication");
         public static bool isLogged = false;
-        public static void SendAccountToServer(string[] a, int type,Form1 form)
+        public static void SendAccountToServer(string[] a, int type, Form1 form)
         {
             try
             {
@@ -31,14 +31,32 @@ namespace QuanNet4_0
                     string response = e.Data;
                     Thread thread = new Thread(() =>
                     {
-                        Process.ProcessReceiveData(form,response);
+                        Process.ProcessReceiveData(form, response);
                     });
-                    
+
                     thread.Start();
                 };
 
                 ws.Connect();
-                ws.Send(extract); 
+                ws.Send(extract);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Language.cannotConnectToServer[Language.languageUsing], Language.notification[Language.languageUsing]);
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        public static void SendDataToServer(string[] a, int type)
+        {
+            try
+            {
+                string extract = string.Empty;
+                for (int i = 0; i < a.Length; i++)
+                {
+                    extract += a[i] + "|";
+                }
+                extract += type.ToString();
+                ws.Send(extract);
             }
             catch (Exception ex)
             {

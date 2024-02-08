@@ -33,13 +33,15 @@
             lbAmountNumber = new Label();
             lbWelcome = new Label();
             button1 = new Button();
+            btMinimize = new Button();
+            BTTEST = new Button();
             SuspendLayout();
             // 
             // lbName
             // 
             lbName.AutoSize = true;
             lbName.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            lbName.Location = new Point(1072, 26);
+            lbName.Location = new Point(1072, 70);
             lbName.Name = "lbName";
             lbName.Size = new Size(80, 32);
             lbName.TabIndex = 0;
@@ -49,7 +51,7 @@
             // 
             lbAmount.AutoSize = true;
             lbAmount.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbAmount.Location = new Point(1158, 26);
+            lbAmount.Location = new Point(1158, 70);
             lbAmount.Name = "lbAmount";
             lbAmount.Size = new Size(112, 32);
             lbAmount.TabIndex = 1;
@@ -60,7 +62,7 @@
             // 
             lbAmountNumber.AutoSize = true;
             lbAmountNumber.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbAmountNumber.Location = new Point(1276, 26);
+            lbAmountNumber.Location = new Point(1276, 70);
             lbAmountNumber.Name = "lbAmountNumber";
             lbAmountNumber.Size = new Size(28, 32);
             lbAmountNumber.TabIndex = 2;
@@ -70,7 +72,7 @@
             // 
             lbWelcome.AutoSize = true;
             lbWelcome.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbWelcome.Location = new Point(941, 26);
+            lbWelcome.Location = new Point(941, 70);
             lbWelcome.Name = "lbWelcome";
             lbWelcome.Size = new Size(125, 32);
             lbWelcome.TabIndex = 4;
@@ -78,28 +80,51 @@
             // 
             // button1
             // 
-            button1.Location = new Point(214, 173);
+            button1.Location = new Point(1254, 21);
             button1.Name = "button1";
-            button1.Size = new Size(745, 285);
+            button1.Size = new Size(50, 30);
             button1.TabIndex = 5;
-            button1.Text = "button1";
+            button1.Text = "X";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
+            // 
+            // btMinimize
+            // 
+            btMinimize.Location = new Point(1198, 21);
+            btMinimize.Name = "btMinimize";
+            btMinimize.Size = new Size(50, 30);
+            btMinimize.TabIndex = 6;
+            btMinimize.Text = "-";
+            btMinimize.UseVisualStyleBackColor = true;
+            btMinimize.Click += btMinimize_Click;
+            // 
+            // BTTEST
+            // 
+            BTTEST.Location = new Point(377, 252);
+            BTTEST.Name = "BTTEST";
+            BTTEST.Size = new Size(580, 221);
+            BTTEST.TabIndex = 7;
+            BTTEST.Text = "TEST BUTTON";
+            BTTEST.UseVisualStyleBackColor = true;
+            BTTEST.Click += BTTEST_Click;
             // 
             // MainClient
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1331, 705);
+            Controls.Add(BTTEST);
+            Controls.Add(btMinimize);
             Controls.Add(button1);
             Controls.Add(lbWelcome);
             Controls.Add(lbAmountNumber);
             Controls.Add(lbAmount);
             Controls.Add(lbName);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "MainClient";
             Text = "MainClient";
             Load += MainClient_Load;
+            MouseDown += MainClient_MouseDown;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -111,5 +136,7 @@
         private Label lbAmountNumber;
         private Label lbWelcome;
         private Button button1;
+        private Button btMinimize;
+        private Button BTTEST;
     }
 }

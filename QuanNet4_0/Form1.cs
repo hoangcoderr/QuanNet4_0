@@ -49,14 +49,14 @@ namespace QuanNet4_0
             else
             {
                 string[] data = { usernameTxt.Text, passwordTxt.Text };
-                
+
                 Thread thread = new Thread(() =>
                 {
-                    SendData.SendAccountToServer(data, TYPE,this);
+                    SendData.SendAccountToServer(data, TYPE, this);
                 });
-               
+
                 thread.Start();
-               
+
             }
         }
 
@@ -101,7 +101,7 @@ namespace QuanNet4_0
                     SendData.ws.Close();
                     Application.Exit();
                 }
-                catch (Exception ex) 
+                catch (Exception ex)
                 {
                     Application.Exit();
                 }
@@ -131,7 +131,7 @@ namespace QuanNet4_0
 
         private void button1_Click(object sender, EventArgs e)
         {
-          this.Hide();  
+            this.Hide();
         }
     }
 }

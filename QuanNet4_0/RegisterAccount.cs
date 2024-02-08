@@ -39,7 +39,7 @@ namespace QuanNet4_0
         {
             if (string.IsNullOrEmpty(txtUserRegister.Text) ||
                 string.IsNullOrEmpty(txtPassRegister.Text) ||
-                string.IsNullOrEmpty(txtRetypePassRegister.Text)||
+                string.IsNullOrEmpty(txtRetypePassRegister.Text) ||
                 string.IsNullOrEmpty(txtName.Text))
             {
                 return false;
@@ -68,7 +68,7 @@ namespace QuanNet4_0
             }
             else
             {
-                string[] data = { txtUserRegister.Text, txtPassRegister.Text,txtName.Text };
+                string[] data = { txtUserRegister.Text, txtPassRegister.Text, txtName.Text };
                 SendData.SendAccountToServer(data, TYPE, new Form1());
             }
         }

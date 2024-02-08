@@ -32,6 +32,8 @@ namespace QuanNet4_0
         public static string[] alreadyConnectedToServer = { "Bạn đã kết nối đến server rồi", "You've already connected to server!" };
         public static string[] welcomeText = { "Chào mừng,", "Welcome," };
         public static string[] amountText = { "Số dư: ", "Amount: " };
+        public static string[] notEnoughMoney = { "Bạn không đủ tiền để mua item này!", "You don't have enough money to pay this item!" };
+        public static string[] buySucessfully = { "Bạn đã mua thành công!", "Pay sucessfully!" };
     }
 
 }
