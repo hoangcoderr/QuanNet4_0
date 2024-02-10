@@ -14,6 +14,7 @@ Sử dụng WebSocket và ngôn ngữ C#.
 ## Cách thức hoạt động
 - Sử dụng websocket trao đổi với server, tăng tốc độ trao đổi thông tin, bảo mật thông tin một cách tốt nhất
 - Khi client nhận thông tin từ server, client sẽ xử lý, cập nhật cho người dùng thấy.
+- Server ở đây nhé: https://github.com/hoangcoderr/Server-QuanNet4_0
 - To be continue(Sẽ cập nhật nếu có chức năng gì mới heheehhe)
 
 ## _Chú ý: Project này được làm bởi sv năm nhất, nên chắc chắc sai sót là rất nhiều, nhưng tớ sẽ cố gắng cải thiện, nâng cấp project này!!_
