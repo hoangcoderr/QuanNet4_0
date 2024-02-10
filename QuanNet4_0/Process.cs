@@ -24,9 +24,9 @@ namespace QuanNet4_0
                             form.Hide();
                         });
                         MessageBox.Show(Language.loginSucessful[Language.languageUsing], Language.notification[Language.languageUsing]);
-         
+
                         MainClient mainClient = new MainClient(str[2], str[3], int.Parse(str[4]));
-         
+
                         Application.Run(mainClient);
 
                     }
@@ -47,11 +47,11 @@ namespace QuanNet4_0
                     }
                     break;
                 case 2:
-                    if (int.Parse(str[0]) == 0)
+                    if (int.Parse(str[0]) == 1)
                     {
                         MessageBox.Show(Language.notEnoughMoney[Language.languageUsing], Language.notEnoughMoney[Language.languageUsing]);
                     }
-                    else
+                    else if (int.Parse(str[0]) == 0)
                     {
                         MainClient.amount -= int.Parse(str[1]);
                         MessageBox.Show(Language.buySucessfully[Language.languageUsing], Language.buySucessfully[Language.languageUsing]);
@@ -60,6 +60,10 @@ namespace QuanNet4_0
                         {
                             mainClientForm.UpdateAmount(MainClient.amount);
                         }
+                    }
+                    else
+                    {
+                        MessageBox.Show(Language.notEnoughItemFromServer[Language.languageUsing], Language.notification[Language.languageUsing]);
                     }
                     break;
             }

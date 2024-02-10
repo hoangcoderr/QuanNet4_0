@@ -34,6 +34,7 @@ namespace QuanNet4_0
         public static string[] amountText = { "Số dư: ", "Amount: " };
         public static string[] notEnoughMoney = { "Bạn không đủ tiền để mua item này!", "You don't have enough money to pay this item!" };
         public static string[] buySucessfully = { "Bạn đã mua thành công!", "Pay sucessfully!" };
+        public static string[] notEnoughItemFromServer = { "Xin lỗi, món hàng này hiện đã hết!", "Sorry, this item is temporary out!" };
     }
 
 }

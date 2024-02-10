@@ -39,9 +39,7 @@ namespace QuanNet4_0
         public void UpdateAmount(int newAmount)
         {
             MainClient.amount = newAmount;
-            int displayedAmount = amount * 1000; // Chuyển đổi sang đơn vị VND
-
-            // Sử dụng Invoke để thực hiện cập nhật trên luồng chính
+            int displayedAmount = amount * 1000;
             if (lbAmountNumber.InvokeRequired)
             {
                 lbAmountNumber.Invoke(new MethodInvoker(delegate {
